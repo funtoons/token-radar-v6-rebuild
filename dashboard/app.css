@@ -1,0 +1,68 @@
+:root{
+  --bg:#0b1220; --panel:#111c33; --panel2:#0e1830; --line:#22345c;
+  --ink:#e8eefc; --dim:#9db1d6; --faint:#6b7fa6;
+  --amber:#f5b942; --cyan:#39c2d7; --green:#3fce7c; --red:#e06c5a; --violet:#9d8cff;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0 auto;max-width:1180px;padding:20px 18px 40px;color:var(--ink);
+  font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  border-bottom:2px solid var(--amber);padding-bottom:12px}
+h1{margin:0;font-size:30px;letter-spacing:2px}
+h1 span{color:var(--amber)}
+.sub{margin:4px 0 0;color:var(--dim);max-width:640px}
+.meta{font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--dim);
+  text-align:right;white-space:pre-line}
+.method{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;margin:16px 0;font-size:14px}
+.method h2{margin:0 0 6px;font-size:15px;color:var(--amber)}
+.method p{margin:6px 0;color:var(--dim)}
+.method code{color:var(--ink);font:13px ui-monospace,Menlo,monospace}
+.method b{color:var(--ink)}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:4px 0 10px}
+.tabs{display:flex;gap:6px}
+.tabs button{background:var(--panel);color:var(--dim);border:1px solid var(--line);
+  border-radius:8px 8px 0 0;padding:8px 12px;cursor:pointer;font:inherit}
+.tabs button.active{background:var(--amber);color:#171207;border-color:var(--amber);font-weight:700}
+.tabs b{font-weight:700}
+.controls label{font-size:13px;color:var(--dim);display:flex;flex-direction:column;gap:2px}
+.controls input,.controls select{background:var(--panel);color:var(--ink);
+  border:1px solid var(--line);border-radius:6px;padding:7px 9px;font:inherit}
+.hint{color:var(--faint);font-size:13px;margin:2px 0 10px}
+table{width:100%;border-collapse:collapse;background:var(--panel2);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--faint);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:#16264a}
+td .name{font-weight:700}
+td .slug{color:var(--faint);font-size:12px}
+td .cat{color:var(--dim);font-size:12px}
+.chip{display:inline-block;padding:1px 8px;border-radius:20px;font-size:12px;font-weight:700}
+.chip.FARM{background:#123f28;color:var(--green)}
+.chip.THIN{background:#4a350f;color:var(--amber)}
+.chip.SKIP{background:#3d1d19;color:var(--red)}
+.chip.LIVE{background:#123a52;color:var(--cyan)}
+.chip.TRACKED{background:#2c2547;color:var(--violet)}
+/* A detail deep-link (#detail=<slug>) is its own route: the list and the
+   method box step aside so the protocol fills the first screen. */
+body.detail-route .method,body.detail-route main,body.detail-route .controls,body.detail-route .hint{display:none}
+.more{color:var(--faint);font-size:13px}
+#detail{background:var(--panel);border:1px solid var(--amber);border-radius:10px;
+  padding:16px 18px;margin-top:18px}
+#detail:empty{display:none}
+#detail h2{margin:0 0 2px;font-size:22px}
+#detail .slugline{color:var(--faint);font-size:13px;margin:0 0 10px}
+#detail .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 16px;margin:10px 0}
+#detail .grid div{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+#detail .grid small{display:block;color:var(--faint);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+#detail .grid b{font-size:16px}
+#detail ol{margin:8px 0 4px;padding-left:22px}
+#detail li{margin:5px 0}
+#detail .note{color:var(--dim);font-size:13px}
+#detail .close{float:right;background:none;border:1px solid var(--line);color:var(--dim);
+  border-radius:6px;padding:4px 10px;cursor:pointer}
+footer{margin-top:26px;border-top:1px solid var(--line);padding-top:12px;color:var(--dim);font-size:13px}
+footer strong{color:var(--ink)}

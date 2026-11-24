@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar v6 — expected-value radar for pre-token protocols</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>TOKEN RADAR <span>v6</span></h1>
+    <p class="sub">Every pre-token protocol, ranked by the expected value of its token — implied value &times; &radic;P(token).</p>
+  </div>
+  <div class="meta" id="meta">Loading snapshot&hellip;</div>
+</header>
+
+<section class="method" id="method"></section>
+
+<nav class="controls">
+  <div class="tabs" role="tablist">
+    <button data-tab="CANDIDATE" class="active" role="tab">Candidates <b id="n-cand"></b></button>
+    <button data-tab="LIVE" role="tab">Live <b id="n-live"></b></button>
+    <button data-tab="TRACKED" role="tab">Tracked <b id="n-tracked"></b></button>
+  </div>
+  <label>Search <input id="q" type="search" placeholder="name or slug&hellip;" autocomplete="off"></label>
+  <label>Category <select id="cat"><option value="">All</option></select></label>
+  <label>Verdict <select id="verdict"><option value="">All</option><option>FARM</option><option>THIN</option><option>SKIP</option></select></label>
+  <label>Sort <select id="sort">
+    <option value="blend">Blend rank (default)</option>
+    <option value="ev">Expected value</option>
+    <option value="tvl">TVL</option>
+    <option value="p">P(token)</option>
+    <option value="age">Age</option>
+  </select></label>
+</nav>
+
+<p class="hint" id="hint"></p>
+
+<main>
+  <table id="board">
+    <thead><tr>
+      <th>#</th><th>Protocol</th><th>TVL</th><th>7d</th><th>Age</th>
+      <th>P(token)</th><th>Implied</th><th>Expected value</th><th>$/h</th><th>Verdict</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="more" id="more"></p>
+</main>
+
+<section id="detail" aria-live="polite"></section>
+
+<footer>
+  <p>P(token) is the share of peer protocols that already record a token — <strong>not</strong> a forecast that a protocol will launch one. A protocol on this board may still record a token its DefiLlama record does not carry; say it records no token, never that it has none.</p>
+  <p>Source: DefiLlama snapshot sealed by make.fun (see data.js). Models are fitted on that snapshot alone; nothing here is fetched from the network and nothing is hardcoded by name.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
