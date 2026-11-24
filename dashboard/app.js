@@ -156,7 +156,11 @@
       if (window.location.hash.indexOf('detail=') === 1) window.history.replaceState(null, '', '#');
       render();
     });
-    detailEl.scrollIntoView({ behavior: 'auto', block: 'start' });
+    // On the detail route the panel already sits under the header; scrolling
+    // it to the top would push the header out of the frame.
+    if (!document.body.classList.contains('detail-route')) {
+      detailEl.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }
   }
 
   document.querySelectorAll('.tabs button').forEach(function (b) {
